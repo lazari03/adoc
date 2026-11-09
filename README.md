@@ -1,4 +1,4 @@
-# ADOC studio
+# Bebe&Co
 
 An Albanian name-letter customizer built with **TypeScript, Vite, Tailwind CSS and Three.js**. No React or backend is required.
 

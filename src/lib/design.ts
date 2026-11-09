@@ -13,5 +13,5 @@ export function validateDesign(value: unknown): Design {
 }
 export function orderUrl(design: Design) {
   const details=Array.from(design.name).map((char,i)=>char===' '?null:`${i+1}. ${char}: ${colors[design.colors[i]].name}`).filter(Boolean).join('\n');
-  return `https://wa.me/355684069999?text=${encodeURIComponent(`Përshëndetje! Dua të porosis një emër të personalizuar nga ADOC studio.\n\nEmri: ${design.name.trim()}\nMadhësia: ${design.size} cm\nNgjyrat:\n${details}\nSfondi i pamjes: ${backgrounds[design.background].name}\n\nJu lutem më konfirmoni çmimin dhe kohën e realizimit. Fotografinë e kombinimit mund ta bashkëngjis në bisedë.`)}`;
+  return `https://wa.me/355684069999?text=${encodeURIComponent(`Përshëndetje! Dua të porosis një emër të personalizuar nga Bebe&Co.\n\nEmri: ${design.name.trim()}\nMadhësia: ${design.size} cm\nNgjyrat:\n${details}\nSfondi i pamjes: ${backgrounds[design.background].name}\n\nJu lutem më konfirmoni çmimin dhe kohën e realizimit. Fotografinë e kombinimit mund ta bashkëngjis në bisedë.`)}`;
 }

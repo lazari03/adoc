@@ -83,8 +83,8 @@ export class NameRenderer {
     try {
       this.renderer.setPixelRatio(1);this.renderer.setSize(1800,1200,false);this.frame(1800,1200);this.renderer.render(this.scene,this.camera);
       context.fillStyle=backgrounds[design.background].hex;context.fillRect(0,0,1800,1400);context.drawImage(this.renderer.domElement,0,0);
-      context.fillStyle='#44234d';context.font='bold 34px sans-serif';context.fillText(`ADOC studio · ${design.name.trim()} · ${design.size} cm`,70,1270);context.font='24px sans-serif';context.fillText('Pamje orientuese · Porosit në WhatsApp: +355 68 406 9999',70,1330);
+      context.fillStyle='#44234d';context.font='bold 34px sans-serif';context.fillText(`Bebe&Co · ${design.name.trim()} · ${design.size} cm`,70,1270);context.font='24px sans-serif';context.fillText('Pamje orientuese · Porosit në WhatsApp: +355 68 406 9999',70,1330);
     }finally{this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));this.resize();}
-    return new Promise((resolve,reject)=>output.toBlob(blob=>blob?resolve(new File([blob],`ADOC-${design.name.trim().replaceAll(' ','-')}.png`,{type:'image/png'})):reject(new Error('Export failed')),'image/png'));
+    return new Promise((resolve,reject)=>output.toBlob(blob=>blob?resolve(new File([blob],`BebeCo-${design.name.trim().replaceAll(' ','-')}.png`,{type:'image/png'})):reject(new Error('Export failed')),'image/png'));
   }
 }

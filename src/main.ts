@@ -14,7 +14,7 @@ try{const stored=localStorage.getItem('adoc.design.v1');if(stored)design=validat
 let selected=0;let palette=[6,0,2,3];let renderer:NameRenderer|CanvasNameRenderer|undefined;let renderReady=false;let busy=false;
 $('#root').innerHTML=`
 <header class="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 sm:px-10 sm:py-8">
-  <a class="brand" href="./" aria-label="ADOC studio, faqja kryesore">adoc<span class="brand-dot">.</span></a>
+  <a class="brand" href="./" aria-label="Bebe&amp;Co, faqja kryesore">Bebe<span class="brand-amp">&amp;</span>Co<span class="brand-dot">.</span></a>
   <span class="hidden text-sm text-muted sm:block">Pak ngjyrë. Shumë personalitet.</span>
   <a class="text-sm font-semibold underline decoration-coral decoration-2 underline-offset-8" href="#si-funksionon">Si funksionon <span aria-hidden="true">↗</span></a>
 </header>
@@ -64,7 +64,7 @@ $('#root').innerHTML=`
   </div>
   <section id="si-funksionon" class="mt-16 border-t border-line pt-8"><h2 class="text-2xl font-medium">Nga një ide, te një kujtim.</h2><div class="mt-6 grid gap-6 sm:grid-cols-3">${[['01','Bëje tëndin','Shkruaj emrin, zgjidh madhësinë dhe ngjyrat.'],['02','Ruaje kombinimin','Shkarko pamjen e krijimit tënd si fotografi.'],['03','Na shkruaj','Dërgo detajet në WhatsApp. Çmimin dhe afatin i konfirmojmë në bisedë.']].map(([n,title,text])=>`<div><span class="text-xs text-plum">${n} /</span><h3 class="mt-2 text-lg font-medium">${title}</h3><p class="mt-2 max-w-xs text-sm leading-relaxed text-muted">${text}</p></div>`).join('')}</div></section>
 </main>
-<footer class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 border-t border-line px-5 py-7 sm:px-10"><span class="brand text-2xl">adoc.</span><a href="https://wa.me/355684069999" target="_blank" rel="noopener noreferrer" class="text-sm">+355 68 406 9999 ↗</a><span class="text-xs text-muted">Emra të vegjël. Histori të mëdha.</span></footer>`;
+<footer class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 border-t border-line px-5 py-7 sm:px-10"><span class="brand text-2xl">Bebe<span class="brand-amp">&amp;</span>Co<span class="brand-dot">.</span></span><a href="https://wa.me/355684069999" target="_blank" rel="noopener noreferrer" class="text-sm">+355 68 406 9999 ↗</a><span class="text-xs text-muted">Emra të vegjël. Histori të mëdha.</span></footer>`;
 
 const input=$<HTMLInputElement>('#name');input.value=design.name;
 const setStatus=(message:string)=>$('#status').textContent=message;
@@ -106,7 +106,7 @@ $('#save').addEventListener('click',async()=>{if(!renderer||busy)return;busy=tru
 // Prepare the file before the share tap to preserve Safari's user-activation requirement.
 let shareFile:File|undefined;
 $('#share').addEventListener('pointerdown',()=>{shareFile=undefined;void renderer?.export().then(file=>{shareFile=file;}).catch(()=>{});});
-$('#share').addEventListener('click',async()=>{if(!renderer||busy)return;try{const file=shareFile??await renderer.export();if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'Krijimi im ADOC'});setStatus('');}else{download(file);setStatus('Fotoja u shkarkua. Hape për ta ruajtur në galeri.');}}catch(error){if(!(error instanceof DOMException&&error.name==='AbortError'))setStatus('Përdor “Ruaj foton” për ta shkarkuar në këtë pajisje.');}});
+$('#share').addEventListener('click',async()=>{if(!renderer||busy)return;try{const file=shareFile??await renderer.export();if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'Krijimi im Bebe&Co'});setStatus('');}else{download(file);setStatus('Fotoja u shkarkua. Hape për ta ruajtur në galeri.');}}catch(error){if(!(error instanceof DOMException&&error.name==='AbortError'))setStatus('Përdor “Ruaj foton” për ta shkarkuar në këtë pajisje.');}});
 if(typeof navigator.share==='function'&&typeof navigator.canShare==='function')$('#share').classList.remove('hidden');
 $('#scene').addEventListener('rendererror',()=>{renderReady=false;setStatus('Pamja 3D u ndërpre. Rifresko faqen për ta ringarkuar.');update(false);});
 update(false);
